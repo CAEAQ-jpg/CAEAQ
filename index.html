@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAEAQ - Engenharia de Aquicultura - IFAM</title>
+
     <style>
         :root {
             /* Cores extraídas da logo oficial */
-            --logo-green: #1b4324; /* Verde escuro */
-            --logo-blue: #0b355a;  /* Azul escuro */
-            --light-bg: #f4f7f5;   /* Fundo claro suave */
+            --logo-green: #1b4324;
+            --logo-blue: #0b355a;
+            --light-bg: #f4f7f5;
         }
 
         body {
@@ -49,7 +50,6 @@
             background-color: var(--logo-blue);
             padding: 12px;
             text-align: center;
-            sticky: top;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -65,7 +65,7 @@
         }
 
         nav a:hover {
-            color: #a3e635; /* Destaque ao passar o mouse */
+            color: #a3e635;
         }
 
         .container {
@@ -89,7 +89,59 @@
             margin-top: 0;
         }
 
-        /* Estilo da Diretoria */
+        /* =========================
+           QUADRO DE AVISOS
+        ========================= */
+
+        .avisos-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .aviso-card {
+            background-color: #f8faf9;
+            border-left: 5px solid var(--logo-green);
+            padding: 18px 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .aviso-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+        }
+
+        .aviso-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+
+        .aviso-header h3 {
+            color: var(--logo-blue);
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .aviso-header span {
+            color: #777;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .aviso-card p {
+            margin: 0;
+            color: #555;
+        }
+
+        /* =========================
+           ESTILO DA DIRETORIA
+        ========================= */
+
         .grid-diretoria {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -118,7 +170,10 @@
             color: #555;
         }
 
-        /* Lista de Documentos */
+        /* =========================
+           LISTA DE DOCUMENTOS
+        ========================= */
+
         .doc-list {
             list-style: none;
             padding: 0;
@@ -152,11 +207,18 @@
             background-color: var(--logo-green);
         }
 
-        /* Contatos */
+        /* =========================
+           CONTATOS
+        ========================= */
+
         .info-contato p {
             font-size: 16px;
             margin: 10px 0;
         }
+
+        /* =========================
+           RODAPÉ
+        ========================= */
 
         footer {
             background-color: var(--logo-blue);
@@ -168,12 +230,15 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
-        <!-- Certifique-se de salvar a imagem da logo como logo.png nesta mesma pasta -->
         <img src="logo.png" alt="Logo CAEAQ" class="logo-img">
-        <p class="tagline">"O único curso de engenharia de aquicultura do norte"</p>
+
+        <p class="tagline">
+            "O único curso de engenharia de aquicultura do norte"
+        </p>
     </header>
 
     <nav>
@@ -185,93 +250,250 @@
 
     <div class="container">
 
-        <!-- Quadro de Avisos -->
+        <!-- =========================
+             QUADRO DE AVISOS
+        ========================== -->
+
         <div id="avisos" class="section">
+
             <h2>📢 Quadro de Avisos</h2>
-            <p>📋 <strong>Espaço para Notícias:</strong> Use esta área para publicar avisos sobre editais, prazos de matrícula, reuniões gerais ou eventos do campus.</p>
+
+            <div class="avisos-container">
+
+                <div class="aviso-card">
+
+                    <div class="aviso-header">
+                        <h3>📣 Bem-vindos ao site oficial do CAEAQ!</h3>
+                        <span>25/07/2026</span>
+                    </div>
+
+                    <p>
+                        Este é o canal oficial de comunicação do Centro Acadêmico de
+                        Engenharia de Aquicultura do IFAM – Campus Presidente Figueiredo.
+                    </p>
+
+                </div>
+
+                <div class="aviso-card">
+
+                    <div class="aviso-header">
+                        <h3>📋 Em breve: novos comunicados</h3>
+                        <span>CAEAQ</span>
+                    </div>
+
+                    <p>
+                        Acompanhe esta seção para consultar informações sobre reuniões,
+                        eventos, atividades acadêmicas e comunicados oficiais.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <!-- Central de Documentos -->
+        <!-- =========================
+             CENTRAL DE DOCUMENTOS
+        ========================== -->
+
         <div id="documentos" class="section">
+
             <h2>📂 Central de Documentos</h2>
-            <p>Acesse as atas, estatutos e resoluções oficiais do CAEAQ:</p>
-             <ul class="doc-list">
-            <li class="doc-item">
-                    <span>Anexo I - Identidade Visual Oficial do CAEAQ</span>
-                    <a href="identidade-visual.html" class="btn-download">Visualizar</a>
-                </li>
+
+            <p>
+                Acesse as atas, estatutos e resoluções oficiais do CAEAQ:
+            </p>
+
+            <ul class="doc-list">
+
                 <li class="doc-item">
-                    <span>Estatuto Oficial do CAEAQ (PDF)</span>
-                    <a href="#" target="_blank" class="btn-download">Visualizar</a>
+                    <span>
+                        Anexo I - Identidade Visual Oficial do CAEAQ
+                    </span>
+
+                    <a href="identidade-visual.html" class="btn-download">
+                        Visualizar
+                    </a>
                 </li>
+
                 <li class="doc-item">
-                    <span>Atas das Assembleias Gerais</span>
-                    <a href="#" target="_blank" class="btn-download">Acessar</a>
+
+                    <span>
+                        Estatuto Oficial do CAEAQ (PDF)
+                    </span>
+
+                    <a href="#" target="_blank" class="btn-download">
+                        Visualizar
+                    </a>
+
                 </li>
+
                 <li class="doc-item">
-                    <span>Formulários e Requerimentos</span>
-                    <a href="#" target="_blank" class="btn-download">Acessar</a>
+
+                    <span>
+                        Atas das Assembleias Gerais
+                    </span>
+
+                    <a href="#" target="_blank" class="btn-download">
+                        Acessar
+                    </a>
+
                 </li>
+
+                <li class="doc-item">
+
+                    <span>
+                        Formulários e Requerimentos
+                    </span>
+
+                    <a href="#" target="_blank" class="btn-download">
+                        Acessar
+                    </a>
+
+                </li>
+
             </ul>
+
         </div>
 
-        <!-- Gestão Atual -->
+        <!-- =========================
+             GESTÃO ATUAL
+        ========================== -->
+
         <div id="diretoria" class="section">
+
             <h2>👥 Diretoria Executiva</h2>
-            <p>Membros da gestão atual do Centro Acadêmico (IFAM - Campus Presidente Figueiredo):</p>
-            
+
+            <p>
+                Membros da gestão atual do Centro Acadêmico
+                (IFAM - Campus Presidente Figueiredo):
+            </p>
+
             <div class="grid-diretoria">
+
                 <div class="cargo-box">
+
                     <h3>Presidência</h3>
-                    <p><strong>Presidente:</strong> Kalyson Juan</p>
-                    <p><strong>Vice-Presidente:</strong> David Assunção</p>
+
+                    <p>
+                        <strong>Presidente:</strong>
+                        Kalyson Juan
+                    </p>
+
+                    <p>
+                        <strong>Vice-Presidente:</strong>
+                        David Assunção
+                    </p>
+
                 </div>
-                
+
                 <div class="cargo-box">
+
                     <h3>Secretaria</h3>
-                    <p><strong>Secretária Geral:</strong> Jessica Oliveira</p>
-                    <p><strong>Primeira Secretária:</strong> Dayana Kitsinger</p>
+
+                    <p>
+                        <strong>Secretária Geral:</strong>
+                        Jessica Oliveira
+                    </p>
+
+                    <p>
+                        <strong>Primeira Secretária:</strong>
+                        Dayana Kitsinger
+                    </p>
+
                 </div>
 
                 <div class="cargo-box">
+
                     <h3>Finanças</h3>
-                    <p><strong>Tesoureira:</strong> Blanda Kalyandra</p>
+
+                    <p>
+                        <strong>Tesoureira:</strong>
+                        Blanda Kalyandra
+                    </p>
+
                 </div>
 
                 <div class="cargo-box">
+
                     <h3>Acadêmica e Científica</h3>
+
                     <p>Rosiene Gracioli</p>
                     <p>Fernanda Sousa</p>
                     <p>Alexssandro</p>
+
                 </div>
 
                 <div class="cargo-box">
+
                     <h3>Eventos</h3>
-                    <p><strong>Diretora:</strong> Debora Aline</p>
+
+                    <p>
+                        <strong>Diretora:</strong>
+                        Debora Aline
+                    </p>
+
                 </div>
 
                 <div class="cargo-box">
+
                     <h3>Comunicação</h3>
+
                     <p>Bruna Barreto</p>
                     <p>Guttemberg Oliveira</p>
+
                 </div>
+
             </div>
+
         </div>
 
-        <!-- Canais de Contato -->
+        <!-- =========================
+             CANAIS DE CONTATO
+        ========================== -->
+
         <div id="contato" class="section">
-            <h2>✉️ canais de Atendimento</h2>
+
+            <h2>✉️ Canais de Atendimento</h2>
+
             <div class="info-contato">
-                <p><strong>📍 Localização:</strong> IFAM - Campus Presidente Figueiredo</p>
-                <p><strong>📧 E-mail Oficial:</strong> eng.aquicultura.ca.ifcprf@gmail.com</p>
-                <p><strong>📸 Instagram:</strong> <a href="https://instagram.com" target="_blank" style="color: var(--logo-blue); font-weight: bold;">@caeaq_ifam</a></p>
+
+                <p>
+                    <strong>📍 Localização:</strong>
+                    IFAM - Campus Presidente Figueiredo
+                </p>
+
+                <p>
+                    <strong>📧 E-mail Oficial:</strong>
+                    eng.aquicultura.ca.ifcprf@gmail.com
+                </p>
+
+                <p>
+                    <strong>📸 Instagram:</strong>
+
+                    <a
+                        href="https://www.instagram.com/caeaq_ifam/"
+                        target="_blank"
+                        style="color: var(--logo-blue); font-weight: bold;"
+                    >
+                        @caeaq_ifam
+                    </a>
+
+                </p>
+
             </div>
+
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 CAEAQ - Centro Acadêmico de Engenharia de Aquicultura. IFAM Campus Presidente Figueiredo.</p>
+
+        <p>
+            &copy; 2026 CAEAQ - Centro Acadêmico de Engenharia de Aquicultura.
+            IFAM Campus Presidente Figueiredo.
+        </p>
+
     </footer>
 
 </body>
