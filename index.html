@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CAEAQ - Engenharia de Aquicultura - IFAM</title>
 
     <style>
         :root {
-            /* Cores extraídas da logo oficial */
             --logo-green: #1b4324;
             --logo-blue: #0b355a;
             --light-bg: #f4f7f5;
+            --white: #ffffff;
+            --text: #333333;
+            --muted: #666666;
+            --border: #e5e5e5;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -18,22 +31,28 @@
             margin: 0;
             padding: 0;
             background-color: var(--light-bg);
-            color: #333;
+            color: var(--text);
             line-height: 1.6;
         }
 
+        /* =========================
+           CABEÇALHO
+        ========================= */
+
         header {
-            background-color: white;
+            background-color: var(--white);
             padding: 30px 20px;
             text-align: center;
             border-bottom: 4px solid var(--logo-green);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
         .logo-img {
+            display: block;
             max-width: 320px;
+            width: 100%;
             height: auto;
-            margin-bottom: 15px;
+            margin: 0 auto 15px;
         }
 
         .tagline {
@@ -41,32 +60,44 @@
             color: var(--logo-green);
             font-weight: bold;
             font-style: italic;
-            margin: 10px 0 0 0;
+            margin: 10px 0 0;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
+        /* =========================
+           MENU
+        ========================= */
+
         nav {
             background-color: var(--logo-blue);
-            padding: 12px;
+            padding: 12px 20px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
         }
 
         nav a {
+            display: inline-block;
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 5px 15px;
+            padding: 5px 0;
             font-weight: bold;
             font-size: 15px;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.2s;
         }
 
         nav a:hover {
             color: #a3e635;
+            transform: translateY(-1px);
         }
+
+        /* =========================
+           CONTAINER
+        ========================= */
 
         .container {
             max-width: 1000px;
@@ -75,11 +106,11 @@
         }
 
         .section {
-            background: white;
+            background: var(--white);
             padding: 30px;
             margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         h2 {
@@ -87,6 +118,7 @@
             border-bottom: 3px solid var(--logo-green);
             padding-bottom: 8px;
             margin-top: 0;
+            margin-bottom: 20px;
         }
 
         /* =========================
@@ -104,19 +136,19 @@
             border-left: 5px solid var(--logo-green);
             padding: 18px 20px;
             border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .aviso-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
         }
 
         .aviso-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             gap: 15px;
             margin-bottom: 8px;
         }
@@ -139,12 +171,63 @@
         }
 
         /* =========================
-           ESTILO DA DIRETORIA
+           DOCUMENTOS
+        ========================= */
+
+        .doc-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+
+        .doc-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        .doc-item:hover {
+            background-color: #f9fbfa;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .doc-title {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: var(--logo-blue);
+            color: white;
+            padding: 8px 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            white-space: nowrap;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: var(--logo-green);
+            transform: translateY(-1px);
+        }
+
+        /* =========================
+           DIRETORIA
         ========================= */
 
         .grid-diretoria {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
@@ -152,59 +235,23 @@
         .cargo-box {
             background: #fdfdfd;
             border-left: 4px solid var(--logo-green);
-            padding: 15px;
+            padding: 18px;
             border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            min-width: 0;
         }
 
         .cargo-box h3 {
-            margin: 0 0 5px 0;
+            margin: 0 0 10px;
             color: var(--logo-blue);
             font-size: 16px;
             text-transform: uppercase;
         }
 
         .cargo-box p {
-            margin: 0;
+            margin: 6px 0;
             font-size: 15px;
             color: #555;
-        }
-
-        /* =========================
-           LISTA DE DOCUMENTOS
-        ========================= */
-
-        .doc-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .doc-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 15px;
-            border-bottom: 1px solid #eee;
-            transition: background 0.2s;
-        }
-
-        .doc-item:hover {
-            background-color: #f9f9f9;
-        }
-
-        .btn-download {
-            background-color: var(--logo-blue);
-            color: white;
-            padding: 6px 16px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .btn-download:hover {
-            background-color: var(--logo-green);
         }
 
         /* =========================
@@ -213,7 +260,18 @@
 
         .info-contato p {
             font-size: 16px;
-            margin: 10px 0;
+            margin: 12px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .info-contato a {
+            color: var(--logo-blue);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .info-contato a:hover {
+            text-decoration: underline;
         }
 
         /* =========================
@@ -228,25 +286,149 @@
             margin-top: 50px;
             font-size: 14px;
         }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 22px 15px;
+            }
+
+            .logo-img {
+                max-width: 260px;
+            }
+
+            .tagline {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+
+            nav {
+                padding: 8px 10px;
+            }
+
+            nav a {
+                margin: 4px 8px;
+                font-size: 14px;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 0 12px;
+            }
+
+            .section {
+                padding: 20px 16px;
+                margin-bottom: 20px;
+                border-radius: 8px;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
+
+            .aviso-header {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .aviso-header span {
+                white-space: normal;
+            }
+
+            .doc-item {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .btn-download {
+                width: 100%;
+                text-align: center;
+            }
+
+            .grid-diretoria {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .cargo-box {
+                padding: 15px;
+            }
+
+            footer {
+                padding: 18px 12px;
+            }
+        }
+
+        @media (max-width: 420px) {
+
+            nav a {
+                display: inline-block;
+                margin: 3px 5px;
+                font-size: 13px;
+            }
+
+            .section {
+                padding: 18px 14px;
+            }
+
+            h2 {
+                font-size: 19px;
+            }
+
+            .aviso-card {
+                padding: 15px;
+            }
+
+            .cargo-box h3 {
+                font-size: 15px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+
     <header>
-        <img src="logo.png" alt="Logo CAEAQ" class="logo-img">
+
+        <img
+            src="logo.png"
+            alt="Logo CAEAQ"
+            class="logo-img"
+        >
 
         <p class="tagline">
             "O único curso de engenharia de aquicultura do norte"
         </p>
+
     </header>
 
+
+    <!-- =========================
+         MENU
+    ========================== -->
+
     <nav>
+
         <a href="#avisos">Avisos</a>
         <a href="#documentos">Documentos</a>
         <a href="#diretoria">Diretoria</a>
         <a href="#contato">Contato</a>
+
     </nav>
+
 
     <div class="container">
 
@@ -254,7 +436,7 @@
              QUADRO DE AVISOS
         ========================== -->
 
-        <div id="avisos" class="section">
+        <section id="avisos" class="section">
 
             <h2>📢 Quadro de Avisos</h2>
 
@@ -263,8 +445,15 @@
                 <div class="aviso-card">
 
                     <div class="aviso-header">
-                        <h3>📣 Bem-vindos ao site oficial do CAEAQ!</h3>
-                        <span>25/07/2026</span>
+
+                        <h3>
+                            📣 Bem-vindos ao site oficial do CAEAQ!
+                        </h3>
+
+                        <span>
+                            25/07/2026
+                        </span>
+
                     </div>
 
                     <p>
@@ -274,77 +463,169 @@
 
                 </div>
 
+
+                <!--
+                PARA ADICIONAR NOVOS AVISOS, COPIE O BLOCO ABAIXO:
+
                 <div class="aviso-card">
+
+                    <div class="aviso-header">
+
+                        <h3>
+                            📣 Título do aviso
+                        </h3>
+
+                        <span>
+                            08/08/2026
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Texto do novo aviso.
+                    </p>
+
+                </div>
+                -->
+
+            </div>
+
+        </section>
+
 
         <!-- =========================
              CENTRAL DE DOCUMENTOS
         ========================== -->
 
-        <div id="documentos" class="section">
+        <section id="documentos" class="section">
 
             <h2>📂 Central de Documentos</h2>
 
             <p>
-                Acesse as atas, estatutos e resoluções oficiais do CAEAQ:
+                Acesse as atas, estatutos, resoluções, relatórios e demais
+                documentos oficiais do CAEAQ.
             </p>
 
             <ul class="doc-list">
 
                 <li class="doc-item">
-                    <span>
+
+                    <span class="doc-title">
                         Anexo I - Identidade Visual Oficial do CAEAQ
                     </span>
 
-                    <a href="identidade-visual.html" class="btn-download">
+                    <a
+                        href="identidade-visual.html"
+                        class="btn-download"
+                    >
                         Visualizar
                     </a>
+
                 </li>
+
 
                 <li class="doc-item">
 
-                    <span>
+                    <span class="doc-title">
                         Estatuto Oficial do CAEAQ (PDF)
                     </span>
 
-                    <a href="#" target="_blank" class="btn-download">
+                    <a
+                        href="#"
+                        target="_blank"
+                        class="btn-download"
+                    >
                         Visualizar
                     </a>
 
                 </li>
 
+
                 <li class="doc-item">
 
-                    <span>
+                    <span class="doc-title">
                         Atas das Assembleias Gerais
                     </span>
 
-                    <a href="#" target="_blank" class="btn-download">
+                    <a
+                        href="#"
+                        target="_blank"
+                        class="btn-download"
+                    >
                         Acessar
                     </a>
 
                 </li>
 
+
                 <li class="doc-item">
 
-                    <span>
+                    <span class="doc-title">
                         Formulários e Requerimentos
                     </span>
 
-                    <a href="#" target="_blank" class="btn-download">
+                    <a
+                        href="#"
+                        target="_blank"
+                        class="btn-download"
+                    >
                         Acessar
+                    </a>
+
+                </li>
+
+
+                <!-- =========================
+                     PRESTAÇÃO DE CONTAS
+                ========================== -->
+
+                <li class="doc-item">
+
+                    <span class="doc-title">
+                        📊 Relatório de Prestação de Contas –
+                        Arraial Empreendedor do IFAM 2026
+                    </span>
+
+                    <a
+                        href="Relatorio_Prestacao_de_Contas_CAEAQ_Arraial_IFAM.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-download"
+                    >
+                        Visualizar PDF
+                    </a>
+
+                </li>
+
+
+                <li class="doc-item">
+
+                    <span class="doc-title">
+                        📎 Anexo I – Comprovantes de Pagamentos –
+                        Arraial Empreendedor do IFAM 2026
+                    </span>
+
+                    <a
+                        href="anexo%20I_arraial_ifam.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-download"
+                    >
+                        Visualizar PDF
                     </a>
 
                 </li>
 
             </ul>
 
-        </div>
+        </section>
+
 
         <!-- =========================
-             GESTÃO ATUAL
+             DIRETORIA
         ========================== -->
 
-        <div id="diretoria" class="section">
+        <section id="diretoria" class="section">
 
             <h2>👥 Diretoria Executiva</h2>
 
@@ -357,7 +638,9 @@
 
                 <div class="cargo-box">
 
-                    <h3>Presidência(DG)</h3>
+                    <h3>
+                        Presidência (DG)
+                    </h3>
 
                     <p>
                         <strong>Presidente:</strong>
@@ -371,9 +654,12 @@
 
                 </div>
 
+
                 <div class="cargo-box">
 
-                    <h3>Secretaria(SEC)</h3>
+                    <h3>
+                        Secretaria (SEC)
+                    </h3>
 
                     <p>
                         <strong>Secretária Geral:</strong>
@@ -387,9 +673,12 @@
 
                 </div>
 
+
                 <div class="cargo-box">
 
-                    <h3>Finanças(TES)</h3>
+                    <h3>
+                        Finanças (TES)
+                    </h3>
 
                     <p>
                         <strong>Tesoureira:</strong>
@@ -398,19 +687,33 @@
 
                 </div>
 
+
                 <div class="cargo-box">
 
-                    <h3>Acadêmica e Científica(DAC)</h3>
+                    <h3>
+                        Acadêmica e Científica (DAC)
+                    </h3>
 
-                    <p>Rosiene Gracioli</p>
-                    <p>Fernanda Sousa</p>
-                    <p>Alexssandro</p>
+                    <p>
+                        Rosiene Gracioli
+                    </p>
+
+                    <p>
+                        Fernanda Sousa
+                    </p>
+
+                    <p>
+                        Alexssandro
+                    </p>
 
                 </div>
 
+
                 <div class="cargo-box">
 
-                    <h3>Eventos(DE)</h3>
+                    <h3>
+                        Eventos (DE)
+                    </h3>
 
                     <p>
                         <strong>Diretora:</strong>
@@ -419,24 +722,33 @@
 
                 </div>
 
+
                 <div class="cargo-box">
 
-                    <h3>Comunicação(DM)</h3>
+                    <h3>
+                        Comunicação (DM)
+                    </h3>
 
-                    <p>Bruna Barreto</p>
-                    <p>Guttemberg Oliveira</p>
+                    <p>
+                        Bruna Barreto
+                    </p>
+
+                    <p>
+                        Guttemberg Oliveira
+                    </p>
 
                 </div>
 
             </div>
 
-        </div>
+        </section>
+
 
         <!-- =========================
-             CANAIS DE CONTATO
+             CONTATO
         ========================== -->
 
-        <div id="contato" class="section">
+        <section id="contato" class="section">
 
             <h2>✉️ Canais de Atendimento</h2>
 
@@ -453,12 +765,13 @@
                 </p>
 
                 <p>
+
                     <strong>📸 Instagram:</strong>
 
                     <a
                         href="https://www.instagram.com/caeaq_ifam/"
                         target="_blank"
-                        style="color: var(--logo-blue); font-weight: bold;"
+                        rel="noopener noreferrer"
                     >
                         @caeaq_ifam
                     </a>
@@ -467,9 +780,14 @@
 
             </div>
 
-        </div>
+        </section>
 
     </div>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
 
     <footer>
 
@@ -481,4 +799,5 @@
     </footer>
 
 </body>
+
 </html>
